@@ -83,20 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "9638",
-      "title": "Test Job 1 Updated",
-      "type": "Full-Time",
-      "location": "Lahore, Punjab, PAK",
-      "description": "This is test job 1 description.",
-      "salary": "$80K - 90K",
-      "company": {
-        "name": "Test Job Company",
-        "description": "This is test job 1 description for the company.",
-        "contactEmail": "pk@test.om",
-        "contactPhone": "0313464646464"
-      }
     }
   ]
 }
