@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "json-server --watch src/jobs.json --port 8000",
-    "start": "react-scripts start", 
+    "start": "concurrently \"vite preview\" \"json-server --watch src/jobs.json --port 8000\"",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
