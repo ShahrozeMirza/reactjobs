@@ -11,9 +11,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch src/jobs.json --port 8000",
-    "start": "node server.js",
-    "heroku-postbuild": "npm run build"
+    "server": "json-server --watch jobs.json --port 8000",
+    "start": "node server.js"
   },
   "dependencies": {
     "concurrently": "^9.1.2",

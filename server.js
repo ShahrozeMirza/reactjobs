@@ -10,20 +10,20 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// Serve React build files
+// Serve static files from Vite's output directory (build)
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Create a router using json-server
-const router = jsonServer.router(path.join(__dirname, 'src', 'jobs.json'));
+// JSON Server setup
+const router = jsonServer.router(path.join(__dirname, 'jobs.json'));
+const middlewares = jsonServer.defaults();
+app.use('/api', middlewares, router);
 
-// Use the router
-app.use('/api', router);
-
-// Serve React index.html for unmatched routes
+// Handle SPA routing: always return index.html for unmatched routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
