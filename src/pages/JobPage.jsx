@@ -111,9 +111,15 @@ const JobPage = ({deleteJob}) => {
 }
 
 const jobLoader = async ({ params }) => {
-    const res = await fetch(`/api/jobs/${params.id}`);
-    const data = res.json();
-    return data;
-}
+  const API_URL = import.meta.env.VITE_API_URL || '/api';
+  const res = await fetch(`${API_URL}/jobs/${params.id}`);
+
+  if (!res.ok) {
+    throw new Response('Job not found', { status: 404 });
+  }
+
+  const data = await res.json();
+  return data;
+};
 
 export { JobPage as default, jobLoader };
